@@ -6,14 +6,14 @@ import 'package:oznailsbeauty/constant/style.dart';
 
 AppBar myAppBar() {
   return AppBar(
-    elevation: 2,
-    centerTitle: true,
+    elevation: 3,
+    // centerTitle: true,
     brightness: Brightness.dark,
     backgroundColor: Colors.white,
     iconTheme: IconThemeData(color: Colors.black, size: myFontSize(23)),
     title: Image.asset(
       "assets/logo.jpg",
-      height: kToolbarHeight - 8,
+      height: kToolbarHeight - myFontSize(15),
     ),
     actions: [
       SizedBox(
@@ -24,8 +24,8 @@ AppBar myAppBar() {
             type: MaterialType.transparency,
             child: IconButton(
               splashRadius: 100,
-              icon: Icon(LineIcons.search),
-              iconSize: myFontSize(23),
+              icon: Icon(LineIcons.shoppingCart),
+              iconSize: myFontSize(25),
               onPressed: () {},
             ),
           ),

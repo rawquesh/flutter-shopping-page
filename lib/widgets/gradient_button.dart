@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
           elevation: 1,
           textStyle: ptSansFont(),
           backgroundColor: themeColor,
-          side: const BorderSide(width: 0),
+          side: const BorderSide(width: 0, color: themeColor),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius!)),
         ),
         onPressed: onTap,

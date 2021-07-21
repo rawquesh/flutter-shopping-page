@@ -14,8 +14,8 @@ final lightThemeData = ThemeData.light().copyWith(
   ),
 );
 
-const themeColor = Color(0xfffc4c5c);
+const themeColor = Color(0xff95b675);
 
-const Color themeColor3 = Color(0xFFFF7784);
+const Color themeColor3 = Color(0xFFB0D58D);
 
 const myLinearGradient = LinearGradient(colors: [themeColor, themeColor3]);

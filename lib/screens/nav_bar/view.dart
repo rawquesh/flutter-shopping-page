@@ -61,26 +61,14 @@ class MyNavBar extends StatelessWidget {
                   gap: 7,
                   activeColor: Colors.white,
                   color: Colors.black,
-                  iconSize: myFontSize(23),
-                  textStyle: ptSansFont().copyWith(color: Colors.white),
+                  iconSize: myFontSize(20),
+                  textStyle: ptSansFont(14).copyWith(color: Colors.white),
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   tabs: [
-                    GButton(
-                      icon: LineIcons.home,
-                      text: 'Home',
-                    ),
-                    GButton(
-                      icon: LineIcons.shoppingBag,
-                      text: 'Shop',
-                    ),
-                    GButton(
-                      icon: LineIcons.shoppingCart,
-                      text: 'Cart',
-                    ),
-                    GButton(
-                      icon: LineIcons.user,
-                      text: 'Account',
-                    )
+                    GButton(icon: LineIcons.home, text: 'Home'),
+                    GButton(icon: LineIcons.search, text: 'Search'),
+                    GButton(icon: LineIcons.shoppingBag, text: 'Orders'),
+                    GButton(icon: LineIcons.user, text: 'Account')
                   ],
                 ),
               ),
@@ -90,9 +78,4 @@ class MyNavBar extends StatelessWidget {
       ),
     );
   }
-
-  BottomNavigationBarItem navItems(IconData icon, String label) => BottomNavigationBarItem(
-        icon: Icon(icon, size: myFontSize(24)),
-        label: label,
-      );
 }
