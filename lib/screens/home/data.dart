@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class FeaturedProductsModel {
   final String title;
   final String url;
@@ -55,5 +58,34 @@ List<String> homeBrandsData() {
     'https://www.oznailsbeauty.com.au/assets/webshop/cms/69/169.jpg?1599034471',
     'https://www.oznailsbeauty.com.au/assets/webshop/cms/85/185.jpg?1599018920',
     'https://www.oznailsbeauty.com.au/assets/webshop/cms/33/233.jpg?1599524418',
+  ];
+}
+
+class HomeLayerModel {
+  final String title;
+  final String subTitle;
+  final IconData? icon;
+
+  HomeLayerModel({this.title = '', this.subTitle = '', this.icon});
+}
+
+List<HomeLayerModel> homeLayerData() {
+  return [
+    HomeLayerModel(
+      title: 'The Fastest And Most Affordable Delivery Service',
+      subTitle:
+          'Saving time and money with the fastest and the most affordable delivery service from Australia Post. Free Click And Collect is also available.',
+      icon: FontAwesomeIcons.truck,
+    ),
+    HomeLayerModel(
+      title: 'Money Back Guarantee',
+      subTitle: 'Product any fault within 30 days for an exchange.',
+      icon: FontAwesomeIcons.dollarSign,
+    ),
+    HomeLayerModel(
+      title: 'Discount Up To 20% For Wholesale Account',
+      subTitle: 'Register wholesale account to get up to 20% discount if you are a beauty salon owner.',
+      icon: FontAwesomeIcons.rocket,
+    ),
   ];
 }

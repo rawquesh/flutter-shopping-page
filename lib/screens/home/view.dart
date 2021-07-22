@@ -27,6 +27,111 @@ class HomePage extends StatelessWidget {
           HomeSales(),
           sizedBoxH(10),
           HomeBrands(),
+          HomeLayer5(),
+          Footer(),
+        ],
+      ),
+    );
+  }
+}
+
+class Footer extends StatelessWidget {
+  const Footer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _tiles("services", [
+          'My Account',
+          'Track Order',
+          'Resolution Centre',
+        ]),
+        _tiles("About us", [
+          'About Us',
+          'Our Blog',
+          'Contact Us',
+        ]),
+        _tiles("information", [
+          'Terms of Use',
+          'Privacy Policy',
+          'Disclaimer',
+          '392-394 Torrens Road, Kilkenny SA 5009, Australia',
+          'Phone: (08) 8347 7799',
+          'Email: questions_en@oznailsbeauty.com.au',
+        ]),
+        Divider(height: 1),
+        sizedBoxH(15),
+        Text("Copyright © 2021 Oz nails & beauty supply", style: ptSansFont(12)),
+        sizedBoxH(5),
+        Text("ABN: 23612174320", style: ptSansFont(12)),
+        sizedBoxH(20),
+      ],
+    );
+  }
+
+  ExpansionTile _tiles(String title, List<String> childrens) {
+    return ExpansionTile(
+      expandedAlignment: Alignment.centerLeft,
+      title: Text(
+        title.toUpperCase(),
+        style: ptSansFont(14).copyWith(color: themeColor, letterSpacing: 2),
+      ),
+      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final text in childrens)
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: TextButton(
+              child: Text(
+                text,
+                style: ptSansFont(14).copyWith(color: Colors.black87),
+              ),
+              // style: TextButton.styleFrom(),
+              onPressed: () {},
+            ),
+          )
+      ],
+    );
+  }
+}
+
+class HomeLayer5 extends StatelessWidget {
+  const HomeLayer5({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      color: Color(0xffeeeeee),
+      child: Column(
+        children: [
+          for (final data in homeLayerData())
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Column(
+                children: [
+                  sizedBoxH(20),
+                  Icon(data.icon, color: themeColor, size: myFontSize(29)),
+                  sizedBoxH(20),
+                  Text(
+                    data.title,
+                    textAlign: TextAlign.center,
+                    style: ptSansFont(15).copyWith(fontWeight: FontWeight.bold, letterSpacing: .3),
+                  ),
+                  sizedBoxH(10),
+                  Text(
+                    data.subTitle,
+                    textAlign: TextAlign.center,
+                    style: ptSansFont(14).copyWith(letterSpacing: .3),
+                  ),
+                ],
+              ),
+            )
         ],
       ),
     );
