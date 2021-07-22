@@ -40,6 +40,20 @@ List<FeaturedProductsModel> homeSalesData() {
     FeaturedProductsModel(url: 'assets/home/s5.jpg', title: 'ANC SPECIAL'),
     FeaturedProductsModel(url: 'assets/home/s6.jpg', title: 'CARONLAB WAXING'),
     FeaturedProductsModel(url: 'assets/home/s7.jpg', title: 'MOROCCANTAN'),
+  ];
+}
 
+List<String> homeBrandsData() {
+  return [
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/04/204.png?1599017984',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/44/244.png?1599018634',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/95/195.jpg?1599018304',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/13/213.png?1599018495',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/40/240.jpg?1599018787',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/82/282.jpg?1599524710',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/23/223.jpg?1599034300',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/69/169.jpg?1599034471',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/85/185.jpg?1599018920',
+    'https://www.oznailsbeauty.com.au/assets/webshop/cms/33/233.jpg?1599524418',
   ];
 }

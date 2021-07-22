@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oznailsbeauty/constant/style.dart';
+import 'package:oznailsbeauty/constant/theme.dart';
 import 'package:oznailsbeauty/screens/home/data.dart';
 import 'package:oznailsbeauty/widgets/appbar.dart';
 import 'package:oznailsbeauty/widgets/cache_image.dart';
@@ -18,13 +19,54 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(),
       appBar: myAppBar(),
       body: ListView(
+        cacheExtent: screenHeight,
         children: [
           HomeSlider(),
           sizedBoxH(10),
           HomeFeaturedProducts(),
           HomeSales(),
+          sizedBoxH(10),
+          HomeBrands(),
         ],
       ),
+    );
+  }
+}
+
+class HomeBrands extends StatelessWidget {
+  const HomeBrands({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        sizedBoxH(10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text(
+            'Brands',
+            style: ptSansFont().copyWith(fontWeight: FontWeight.w500, letterSpacing: 1),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(5),
+          height: myFontSize(120),
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: homeBrandsData().length,
+            itemBuilder: (context, index) {
+              final url = homeBrandsData()[index];
+              return Container(
+                width: myFontSize(150),
+                padding: EdgeInsets.all(myFontSize(5)),
+                child: cacheImage(url),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
@@ -39,19 +81,45 @@ class HomeSales extends StatelessWidget {
     return Column(
       children: [
         for (final data in homeSalesData())
-          Container(
-            margin: EdgeInsets.all(5),
-            decoration: BoxDecoration(image: DecorationImage(image: AssetImage(data.url), fit: BoxFit.fitHeight)),
-            width: double.infinity,
-            height: 200,
-            alignment: Alignment.center,
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(.5),
-                borderRadius: BorderRadius.circular(2),
-              ),
-              child: Text(data.title, style: ptSansFont(19).copyWith(color: Colors.white)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(data.url),
+                        fit: BoxFit.cover,
+                      ),
+                      // color: Colors.black12,
+                    ),
+                    height: myFontSize(220),
+                    width: double.infinity,
+                    child: SizedBox.expand(
+                      child: Container(
+                        color: Colors.black.withOpacity(.15),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+                  decoration: BoxDecoration(
+                    color: themeColor.withOpacity(.9),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(data.title, style: ptSansFont(19).copyWith(color: Colors.white)),
+                      sizedBoxH(5),
+                      Text('VIEW >', style: ptSansFont(12).copyWith(color: Colors.white, letterSpacing: 2)),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
       ],
@@ -67,7 +135,6 @@ class HomeFeaturedProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         sizedBoxH(10),
         Padding(
@@ -164,21 +231,56 @@ class HomeSlider extends StatelessWidget {
     );
   }
 
-  Container _item(String path, String text) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(path), fit: BoxFit.cover),
-      ),
-      width: double.infinity,
-      alignment: Alignment.center,
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-        decoration: BoxDecoration(
-          color: Colors.black.withOpacity(.5),
-          borderRadius: BorderRadius.circular(2),
-        ),
-        child: Text(text, style: ptSansFont(19).copyWith(color: Colors.white)),
+  Widget _item(String path, String text) {
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(path),
+                  fit: BoxFit.cover,
+                ),
+                // color: Colors.black12,
+              ),
+              height: myFontSize(220),
+              width: double.infinity,
+              child: SizedBox.expand(
+                child: Container(
+                  color: Colors.black.withOpacity(.15),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+            decoration: BoxDecoration(
+              color: themeColor.withOpacity(.9),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(text, style: ptSansFont(19).copyWith(color: Colors.white)),
+          )
+        ],
       ),
     );
+    // return Container(
+    //   decoration: BoxDecoration(
+    //     image: DecorationImage(image: AssetImage(path), fit: BoxFit.cover),
+    //   ),
+    //   width: double.infinity,
+    //   alignment: Alignment.center,
+    //   child: Container(
+    //     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+    //     decoration: BoxDecoration(
+    //       color: Colors.black.withOpacity(.5),
+    //       borderRadius: BorderRadius.circular(2),
+    //     ),
+    //     child: Text(text, style: ptSansFont(19).copyWith(color: Colors.white)),
+    //   ),
+    // );
   }
 }

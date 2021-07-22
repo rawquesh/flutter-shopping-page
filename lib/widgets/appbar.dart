@@ -6,7 +6,7 @@ import 'package:oznailsbeauty/constant/style.dart';
 
 AppBar myAppBar() {
   return AppBar(
-    elevation: 3,
+    elevation: .1,
     // centerTitle: true,
     brightness: Brightness.dark,
     backgroundColor: Colors.white,
