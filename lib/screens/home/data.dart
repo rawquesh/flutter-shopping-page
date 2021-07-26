@@ -89,3 +89,78 @@ List<HomeLayerModel> homeLayerData() {
     ),
   ];
 }
+
+class DrawerCategories {
+  final String title;
+  final String id;
+  final List<DrawerItem> items;
+
+  DrawerCategories(this.title, {this.id = '', this.items = const []});
+}
+
+class DrawerItem {
+  final String title;
+  final String id;
+
+  DrawerItem(this.title, {this.id = ''});
+}
+
+List<DrawerCategories> drawerData() {
+  return [
+    DrawerCategories(
+      'Nails',
+      items: [
+        DrawerItem('Dipping System'),
+        DrawerItem('Nail & Gel Polish'),
+        DrawerItem('Nail Electrical Equipment'),
+        DrawerItem('Nail Accessories'),
+        DrawerItem('Hard Gel & Acrylics'),
+      ],
+    ),
+    DrawerCategories(
+      'Mani and Pedicure',
+      items: [
+        DrawerItem('Mani & Pedicure Care Tool'),
+        DrawerItem('Sterilizing & Remover'),
+        DrawerItem('Scrub & Massage Lotaion'),
+      ],
+    ),
+    DrawerCategories(
+      'Hair Care',
+      items: [
+        DrawerItem('Hair Care And Styling'),
+        DrawerItem('Hair Electrical And Tool'),
+        DrawerItem('Hair Accessories'),
+      ],
+    ),
+    DrawerCategories(
+      'Waxing',
+      items: [
+        DrawerItem('Waxing Solution'),
+        DrawerItem('Waxing Tool And Accessories'),
+        DrawerItem('Pre & Post Waxing Solution'),
+      ],
+    ),
+    DrawerCategories('Tanning', items: [
+      DrawerItem('Tanning Solution'),
+      DrawerItem('Tanning Tools And Accessories'),
+    ]),
+    DrawerCategories(
+      'Lash & Brow',
+      items: [
+        DrawerItem('Last & Brow Solution'),
+        DrawerItem('Tools & Accessories'),
+      ],
+    ),
+    DrawerCategories('Furniture', items: [DrawerItem('Chair')]),
+    DrawerCategories(
+      'Brand',
+      items: [
+        DrawerItem('Dipping System'),
+        DrawerItem('Nail Lacquer And Gel Polish'),
+        DrawerItem('Waxing & Tanning'),
+        DrawerItem('Lash & Braw'),
+      ],
+    ),
+  ];
+}

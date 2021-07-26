@@ -63,7 +63,7 @@ class MyNavBar extends StatelessWidget {
                   color: Colors.black,
                   iconSize: myFontSize(20),
                   textStyle: ptSansFont(14).copyWith(color: Colors.white),
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                  padding: EdgeInsets.symmetric(horizontal: myFontSize(10) + 5, vertical: myFontSize(7)),
                   tabs: [
                     GButton(icon: LineIcons.home, text: 'Home'),
                     GButton(icon: LineIcons.search, text: 'Search'),

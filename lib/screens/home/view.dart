@@ -1,10 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oznailsbeauty/constant/style.dart';
 import 'package:oznailsbeauty/constant/theme.dart';
 import 'package:oznailsbeauty/screens/home/data.dart';
+import 'package:oznailsbeauty/screens/home/drawer.dart';
 import 'package:oznailsbeauty/widgets/appbar.dart';
 import 'package:oznailsbeauty/widgets/cache_image.dart';
 import 'package:oznailsbeauty/widgets/decoration.dart';
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: MyDrawer(),
       appBar: myAppBar(),
       body: ListView(
         cacheExtent: screenHeight,
